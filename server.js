@@ -14,6 +14,8 @@ const mongoose = require("mongoose");
 const path = require('path');
 const timeout = require('connect-timeout');
 const schedule = require('node-schedule');
+//
+const places = require('./api/places/places.resources');
 /**
  * Define App | Server initial Setup
  * * Port / compression / Engine setup / Response settings / base API Url 
@@ -52,16 +54,14 @@ var baseURL = '/appesca/api';
 // db.once('open', function() {
 //     console.log("MongoDB - Connection successfully");
 // });
-
+/**
+ * Define App Route for each module
+ *  
+ */
+app.use('/places', places);
 
 app.get('/', (request, response) => {  
   response.send('Hello from Express!')
 })
 
-app.listen(port, (err) => {  
-  if (err) {
-    return console.log('something bad happened', err)
-  }
-
-  console.log(`server is listening on ${port}`)
-})
+module.exports = app;
