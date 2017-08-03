@@ -3,7 +3,17 @@
  * @author Matheus Maia
  * * Imports
  */
-const express = require('express')
+const bodyParser = require('body-parser');
+const compression = require('compression')
+const cookieParser = require('cookie-parser');
+const cors = require("cors");
+const express = require('express');
+const fs = require('fs');
+const logger = require('morgan');
+const mongoose = require("mongoose");
+const path = require('path');
+const timeout = require('connect-timeout');
+const schedule = require('node-schedule');
 /**
  * Define App | Server initial Setup
  * * Port / compression / Engine setup / Response settings / base API Url 
