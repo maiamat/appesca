@@ -14,7 +14,7 @@ const mongoose = require("mongoose");
 const path = require('path');
 const timeout = require('connect-timeout');
 const schedule = require('node-schedule');
-//
+//Endpoint imports
 const places = require('./api/places/places.resources');
 /**
  * Define App | Server initial Setup
@@ -60,8 +60,5 @@ var baseURL = '/appesca/api';
  */
 app.use('/places', places);
 
-app.get('/', (request, response) => {  
-  response.send('Hello from Express!')
-})
-
+// ---- EXPORT MODULE APP ---//
 module.exports = app;
