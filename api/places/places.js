@@ -2,7 +2,7 @@ let findById = function() {
   return new Promise((resolve, reject) => {
     let objPlace = {
       'name': 'Recanto do Pacú',
-      'address': 'Souzas'
+      'address': 'Sousas'
     }
     resolve(objPlace);
   })

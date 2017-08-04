@@ -4,7 +4,8 @@
   "description": "APPesca API",
   "main": "server.js",
   "scripts": {
-    "local": "nodemon ./bin/www",
+    "local": "export ENVIRONMENT= && export 'MONGODB_URL=mongodb://localhost/data' && nodemon ./bin/www",
+    "develop": "export ENVIRONMENT= && export 'MONGODB_URL=mongodb://localhost/data' && nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

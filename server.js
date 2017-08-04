@@ -40,20 +40,22 @@ var baseURL = '/appesca/api';
  * * Options / URL / Connection / Open Connect / Error Connect  
  */
 //MONGOOSE INIT
-// var mongoOptions = {
-//     server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 300000 } },
-//     replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 300000 } }
-// };
-// var mongoURL = (process.env.MONGODB_URL || databaseConfig.developmentLocal.mongoURL) + "?socketTimeoutMS=120000";
-// mongoose.connect(mongoURL, mongoOptions);
+var mongoOptions = {
+    server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 300000 } },
+    replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 300000 } }
+};
 
-// var db = mongoose.connection;
-// db.on('error', function(callback) {
-//     console.error("Error connecting into mongodb: " + callback);
-// });
-// db.once('open', function() {
-//     console.log("MongoDB - Connection successfully");
-// });
+
+var mongoURL = (process.env.MONGODB_URL || databaseConfig.developmentLocal.mongoURL) + "?socketTimeoutMS=120000";
+mongoose.connect(mongoURL, mongoOptions);
+
+var db = mongoose.connection;
+db.on('error', function(callback) {
+    console.error("Error connecting into mongodb: " + callback);
+});
+db.once('open', function() {
+    console.log("MongoDB - Connection successfully");
+});
 /**
  * Define App Route for each module
  *  
